@@ -1,21 +1,27 @@
 @import "../myvariables";
 
 .navbar {
-    text-align: center;
-    padding: 0.6rem;
+    padding: 0.5rem 2rem;
 
     .navbar-brand {
         float: none;
         color: $fb-blue-color;
-        font-family: $font-sans-serif;
 
         span {
             font-weight: 100;
         }
     }
+
     .logo-outline {
-        border-right: 10px solid;
-        padding: 0px 8px;
+        border-right: 12px solid;
+        padding: 0px 8px 0px 0px;
         border-color: $light-blue-color;
+    }
+
+    .btn-primary-fb {
+        font-size: 0.8em;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        margin-top: 5px;
     }
 }

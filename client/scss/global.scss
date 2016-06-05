@@ -1,11 +1,16 @@
 @import "myvariables";
-
 body {
+    font-family: 'Lato', 'helvetica neue',helvetica,arial,sans-serif !important;
     .font-handw {
         font-family: $font-handwrite-c;
     }
-
     .font-serif {
         font-family: $font-serif-c;
+    }
+    .font-avenir {
+        font-family: $font-avenir;
+    }
+    .font-lato {
+        font-family: $font-lato;
     }
 }

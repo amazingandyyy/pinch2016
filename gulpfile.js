@@ -16,12 +16,12 @@ var nodemon = require('gulp-nodemon');
 var cleanCSS = require('gulp-clean-css');
 var browserSync = require('browser-sync');
 
-browserSync({
-    server: true,
-    port: 8000
-}, function(err, bs) {
-    console.log(bs.options.getIn(["urls", "local"]));
-});
+// browserSync({
+//     server: true,
+//     port: 8000
+// }, function(err, bs) {
+//     console.log(bs.options.getIn(["urls", "local"]));
+// });
 
 ////////////
 // General Tasks
