@@ -1,0 +1,21 @@
+@import "../myvariables";
+
+.navbar {
+    text-align: center;
+    padding: 0.6rem;
+
+    .navbar-brand {
+        float: none;
+        color: $fb-blue-color;
+        font-family: $font-sans-serif;
+
+        span {
+            font-weight: 100;
+        }
+    }
+    .logo-outline {
+        border-right: 10px solid;
+        padding: 0px 8px;
+        border-color: $light-blue-color;
+    }
+}

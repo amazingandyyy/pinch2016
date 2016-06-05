@@ -1,0 +1,11 @@
+@import "myvariables";
+
+body {
+    .font-handw {
+        font-family: $font-handwrite-c;
+    }
+
+    .font-serif {
+        font-family: $font-serif-c;
+    }
+}
