@@ -1,51 +1,54 @@
 'use strict';
+require('dotenv').config();
 
-var express = require('express');
-var http = require('http');
-var path = require('path');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var chalk = require('chalk');
-var error = chalk.bold.red;
+let express = require('express');
+let http = require('http');
+let path = require('path');
+let bodyParser = require('body-parser');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
+let mongoose = require('mongoose');
+let chalk = require('chalk');
+let error = chalk.bold.red;
 
-var PORT = process.env.PORT || 8000;
-var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/testapp';
+let PORT = process.env.PORT;
+const MONGOURL = process.env.MONGOLAB_URI;
 
-// if(!process.env.JWT_SECRET) {
-//   console.error(error(`ERROR:  Missing process.env.JWT_SECRET.
-//     You must set a JWT secret as an environment variable.`));
-// }
+if (!process.env.JWT_SECRET) {
+    console.error(error(`ERROR:  Missing process.env.JWT_SECRET.`));
+} else {
+    mongoose.connect(MONGOURL, err => {
+        console.log(err || `Connected to MongoDB: ${MONGOURL}`);
+    });
+}
 
-mongoose.connect(mongoUrl, function(err){
-  if(err) return console.error(`Error connecting to Mongodb: ${err}`);
-  console.log(`Connected to MongoDB: ${mongoUrl}`);
-});
-
-var app = express();
+let app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded( {extended: true} ));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api', require('./routes/api'));
+app.use('/auth', require('./routes/auth'));
 app.use('/', require('./routes/index'));
 
-app.use(function(req, res){
-  res.status(404).render('404');
+app.use(function(req, res) {
+    res.status(404).render('404');
 });
 
 var server = http.createServer(app);
 
 server.listen(PORT);
 server.on('error', function(err) {
-  console.error(err);
+    console.error(err);
 });
-server.on('listening', function(){
-  console.log(`Listening on port ${PORT}`);
+server.on('listening', function() {
+    console.log(`Listening on port ${PORT}`);
 });

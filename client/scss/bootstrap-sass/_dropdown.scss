@@ -67,9 +67,10 @@
 .dropdown-item {
   display: block;
   width: 100%; // For `<button>`s
-  padding: 3px 20px;
+  padding: 3px 15px;
   clear: both;
   font-weight: normal;
+  font-size: 0.9em;
   line-height: $line-height;
   color: $dropdown-link-color;
   text-align: inherit; // For `<button>`s
