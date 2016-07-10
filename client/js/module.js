@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('pinchApp', ['ui.router', 'satellizer']);
+var app = angular.module('pinchApp', ['ui.router', 'satellizer', 'firebase']);
 
 app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
 

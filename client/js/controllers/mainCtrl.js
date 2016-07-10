@@ -2,7 +2,12 @@
 
 var app = angular.module('pinchApp');
 
-app.controller('mainCtrl', function($http, $scope, $auth, Account, $rootScope, $timeout, $window, $state) {
+app.controller('mainCtrl', function($http, $scope, $auth, Account, $rootScope, $timeout, $window, $state, $firebaseAuth) {
+
+
+    // var ref = new Firebase("https://projects-44c76.firebaseio.com/");
+
+
     console.log('mainCtrl loaded');
     $scope.currentUser = '';
     $scope.loginloading = false;

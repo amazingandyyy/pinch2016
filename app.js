@@ -22,6 +22,12 @@ if (!process.env.JWT_SECRET) {
     });
 }
 
+// let firebase = require("firebase");
+// firebase.initializeApp({
+//   serviceAccount: "./projects-4a0cd1eb4f4e.json",
+//   databaseURL: "https://projects-44c76.firebaseio.com/"
+// });
+
 let app = express();
 
 app.set('views', path.join(__dirname, 'views'));
